@@ -4,7 +4,7 @@
 remote=${1:-"origin"}
 branch=${2:-"master"}
 
-echo -e "开始同步：\n  - 目录: $(pwd)\n  - 远程: $remote\n  - 分支: $branch"
+echo -e "开始同步：\n  - 目录: $(pwd)\n  - 远程: $remote\n  - 分支: $branch\n"
 
 # 拉取远程最新信息，以确保后续比较的准确性
 git fetch $remote
