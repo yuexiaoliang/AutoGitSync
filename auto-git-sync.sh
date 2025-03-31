@@ -15,8 +15,9 @@ if [ "$(git rev-parse HEAD)" != "$(git rev-parse $remote/$branch)" ]; then
   git pull $remote $branch
 fi
 
-# 检测是否有未暂存的修改。如果有，则添加到暂存区并提交
-if ! git diff --quiet; then
+# 检测是否有任何更改（包括未跟踪的新文件）
+# 检测是否有任何更改（包括未暂存的修改和未跟踪的新文件）
+if [ -n "$(git status --porcelain)" ]; then
   echo -e "\n正在提交本地修改..."
   git add .
   git commit -m "auto commit"
